@@ -336,14 +336,14 @@ a,button,[role="button"]{transition:color var(--transition),background var(--tra
 // DATA
 // ============================================================
 const YEARS = [2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
-const REFORM_YEARS = [2031,2032,2033,2034];
+const REFORM_YEARS = [2030,2031,2032,2033];
 
 // Cohort profiles: what a student entering that year has been taught
 function getCohortProfile(year) {
-  if (year <= 2030) return 'pre-reform'; // all old NC, old GCSEs (sat year-3), old A Levels (sat year-1)
-  if (year >= 2031 && year <= 2032) return 'transition'; // new NC in effect for some schooling, but old GCSE/A Level specs // first year new NC taught
-  if (year === 2033) return 'reform-early'; // first new A Levels (sat 2032), but old GCSEs (sat 2030) // new GCSE specifications start
-  if (year === 2034) return 'reform-mid'; // first new GCSEs (sat 2031) AND new A Levels (sat 2033) // new A levels start 2030
+  if (year <= 2029) return 'pre-reform'; // all old NC, old GCSEs (sat year-3), old A Levels (sat year-1)
+  if (year >= 2030 && year <= 2031) return 'transition'; // new NC in effect for some schooling, but old GCSE/A Level specs // first year new NC taught
+  if (year === 2032) return 'reform-early'; // first new A Levels (sat 2031), but old GCSEs (sat 2029) // new GCSE specifications start
+  if (year === 2033) return 'reform-mid'; // first new GCSEs (sat 2030) AND new A Levels (sat 2032) // new A levels start 2030
   return 'reform-full';
 }
 
@@ -351,10 +351,10 @@ function getCohortDescription(year) {
   const profile = getCohortProfile(year);
   const schoolYear = year - 15; // approx year they started primary (age 4, uni at 19)
   const descriptions = {
-    'pre-reform': `Students entering in ${year} completed all education under the pre-2028 National Curriculum. They were educated under the 2014 National Curriculum with the EBacc still in force during their secondary years. Creative arts subjects (including Media Studies) were squeezed by the EBacc performance measures, meaning fewer students will have formal media, design or creative qualifications unless they specifically opted for arts/media pathways. Their computing education covered algorithms, programming and basic digital literacy only — no AI literacy, no data science concepts.`,
-          'transition': `Students entering in ${year} sat their GCSEs in ${year - 3} and left sixth form in ${year - 1}, both under old specifications. However, the new National Curriculum was implemented from September 2028, so this cohort experienced some of their secondary education under the reformed framework. The EBacc was formally abolished during their schooling, and compulsory media literacy was introduced in citizenship. Schools began adapting their teaching in anticipation of the reforms, meaning this cohort will have had improved media literacy awareness and potentially broader creative subject exposure compared to earlier cohorts. Their formal qualifications (GCSEs and A Levels) still reflect older specifications, but classroom practice and school culture will have begun to shift. The oracy framework was introduced but may not yet be fully embedded. Expect a modest improvement in critical media thinking and slightly broader creative arts engagement compared to pre-reform cohorts, but no change in formal qualification content.`,
-    'reform-early': `Students entering in ${year} are the first cohort to have sat the new A Level specifications (first exams 2032), leaving sixth form in ${year - 1}. However, they sat their GCSEs in ${year - 3} under the old specifications. The new National Curriculum was in effect during their secondary years, meaning they benefited from the abolition of EBacc, compulsory media literacy in citizenship, and the oracy framework. The reformed Computing GCSE was available but this cohort sat GCSEs under the old specification. Their A Level qualifications reflect the new broader frameworks including AI, systems thinking, and reformed creative arts specifications. Expect improved digital literacy, stronger verbal communication skills, and greater creative arts uptake compared to pre-reform cohorts, but their GCSE-level foundations remain based on older specifications.`,
-    'reform-mid': `Students entering in ${year} are the first cohort to have sat both the new GCSE specifications (first exams 2031) and new A Level specifications (first exams 2032). They sat their GCSEs in ${year - 3} under the reformed specifications and left sixth form in ${year - 1} with new A Levels. The EBacc was abolished before they chose their GCSE options, meaning a significantly higher proportion will hold creative arts GCSEs and A Levels. They have benefited from the reformed Computing GCSE (AI literacy, data science, digital ethics), the revitalised arts curriculum, compulsory media literacy throughout schooling, and the oracy framework. However, they started primary school under the old curriculum, so the depth of reform embedding varies. Expect strong AI literacy foundations, broader creative qualifications, and improved verbal communication skills compared to all previous cohorts.`,
+    'pre-reform': `Students entering in ${year} completed all education under the pre-2027 National Curriculum. They were educated under the 2014 National Curriculum with the EBacc still in force during their secondary years. Creative arts subjects (including Media Studies) were squeezed by the EBacc performance measures, meaning fewer students will have formal media, design or creative qualifications unless they specifically opted for arts/media pathways. Their computing education covered algorithms, programming and basic digital literacy only — no AI literacy, no data science concepts.`,
+          'transition': `Students entering in ${year} sat their GCSEs in ${year - 3} and left sixth form in ${year - 1}, both under old specifications. However, the new National Curriculum was implemented from September 2027, so this cohort experienced some of their secondary education under the reformed framework. The EBacc was formally abolished during their schooling, and compulsory media literacy was introduced in citizenship. Schools began adapting their teaching in anticipation of the reforms, meaning this cohort will have had improved media literacy awareness and potentially broader creative subject exposure compared to earlier cohorts. Their formal qualifications (GCSEs and A Levels) still reflect older specifications, but classroom practice and school culture will have begun to shift. The oracy framework was introduced but may not yet be fully embedded. Expect a modest improvement in critical media thinking and slightly broader creative arts engagement compared to pre-reform cohorts, but no change in formal qualification content.`,
+    'reform-early': `Students entering in ${year} are the first cohort to have sat the new A Level specifications (first exams 2030), leaving sixth form in ${year - 1}. However, they sat their GCSEs in ${year - 3} under the old specifications. The new National Curriculum was in effect during their secondary years, meaning they benefited from the abolition of EBacc, compulsory media literacy in citizenship, and the oracy framework. The reformed Computing GCSE was available but this cohort sat GCSEs under the old specification. Their A Level qualifications reflect the new broader frameworks including AI, systems thinking, and reformed creative arts specifications. Expect improved digital literacy, stronger verbal communication skills, and greater creative arts uptake compared to pre-reform cohorts, but their GCSE-level foundations remain based on older specifications.`,
+    'reform-mid': `Students entering in ${year} are the first cohort to have sat both the new GCSE specifications (first exams 2030) and new A Level specifications (first exams 2030). They sat their GCSEs in ${year - 3} under the reformed specifications and left sixth form in ${year - 1} with new A Levels. The EBacc was abolished before they chose their GCSE options, meaning a significantly higher proportion will hold creative arts GCSEs and A Levels. They have benefited from the reformed Computing GCSE (AI literacy, data science, digital ethics), the revitalised arts curriculum, compulsory media literacy throughout schooling, and the oracy framework. However, they started primary school under the old curriculum, so the depth of reform embedding varies. Expect strong AI literacy foundations, broader creative qualifications, and improved verbal communication skills compared to all previous cohorts.`,
     'reform-full': `Students entering in ${year} have experienced the full reformed curriculum from primary through sixth form. This is the most prepared cohort: they have compulsory media literacy from Year 1 (citizenship), AI literacy embedded from KS2, broader computing qualifications, the revitalised arts curriculum, the new A Level frameworks, and the oracy framework. Creative subjects have full equal status in accountability measures, meaning far more of this cohort will hold creative GCSEs and A Levels. Expect significantly higher baseline knowledge in AI ethics, data literacy, media critique, digital production and creative theory compared to pre-reform cohorts.`
   };
   return descriptions[profile];
@@ -381,14 +381,14 @@ const courses = [
       unknown: ['12 principles of animation (anticipation, squash/stretch, arcs, follow-through, etc.)','Professional 2D animation workflows (rigging, tweening, keyframing in Animate/ToonBoom)','3D modelling and texturing pipelines (Autodesk Maya, Cinema 4D)','Compositing and VFX pipelines (Nuke, After Effects at professional level)','Pre-production documentation (animatics, exposure sheets)','Film grammar applied to animation','Industry roles and production hierarchy','AI-assisted animation tools (none in current school curriculum)']
     },
     advice: {
-      general: "Students entering before 2029 have limited formal animation training beyond basic art skills and possibly BTEC-level digital work. L4 should establish animation as a discipline distinct from art-making, introducing the technical language and 12 principles from the ground up, and should not assume prior software familiarity. By 2030+, expect stronger digital literacy and more students with BTEC-level digital art experience, but the 12 principles and professional workflows will still be new territory.",
+      general: "Students entering before 2028 have limited formal animation training beyond basic art skills and possibly BTEC-level digital work. L4 should establish animation as a discipline distinct from art-making, introducing the technical language and 12 principles from the ground up, and should not assume prior software familiarity. By 2028+, expect stronger digital literacy and more students with BTEC-level digital art experience, but the 12 principles and professional workflows will still be new territory.",
       levels: {
         L4: {
           pitch: "Foundational — assume no prior animation knowledge. Begin with the 12 principles and hand-drawn techniques before digital tools.",
           content: [
             "Establish the 12 principles of animation (Disney/Lasseter) as the core analytical and practical framework — most students have never encountered these formally",
             "Introduce animation history contextually (cel animation → digital) linking to students' cultural familiarity with animated media rather than production knowledge",
-            "2D Computer Animation: teach interface literacy first (timeline, keyframes, layers) before creative output; pre-2030 cohorts likely have no Animate CC experience",
+            "2D Computer Animation: teach interface literacy first (timeline, keyframes, layers) before creative output; pre-2029 cohorts likely have no Animate CC experience",
             "3D Asset Creation: teach modelling logic (vertices, edges, faces; subdivision workflow) without assuming students know Blender or Maya; many will only have used Scratch/Python",
             "Storytelling & Narrative: link to familiar media forms (films, games students know) but introduce formal narrative theory (3-act structure, Campbell's monomyth, visual storytelling) as new academic concepts",
             "Contexts & Approaches: introduce animation as a cultural, industrial and aesthetic practice — cover studios, funding models, and critical frameworks (e.g. limited vs. full animation; animation as political/documentary form)",
@@ -401,10 +401,10 @@ const courses = [
           content: [
             "3D Computer Animation: by this point students should be comfortable with interface; introduce advanced rigging, character performance, and production-scale project management",
             "Documentary Animation: connects to growing interest in non-fiction animation (a form largely absent from school curricula); teach documentary ethics, rotoscoping, archival research methods",
-            "VFX for Film & Games: introduce compositing pipeline; teach students to think across software stacks (After Effects ↔ Nuke ↔ game engines); pre-2030 cohorts may have basic Premiere but not compositing experience",
+            "VFX for Film & Games: introduce compositing pipeline; teach students to think across software stacks (After Effects ↔ Nuke ↔ game engines); pre-2029 cohorts may have basic Premiere but not compositing experience",
             "Industry Brief: live client briefs are highly effective for this cohort as most have no experience of commercial constraints; teach brief analysis, client communication, and iteration workflows",
-            "Extended Reality (option): introduce AR/VR/XR workflow for animation — a wholly new field for all school cohorts; by 2030+ students may have encountered AI image tools but not spatial media production",
-            "By 2029+ cohort: AI-assisted animation tools (Runway, Adobe Firefly video, Kling AI) are emerging in industry — begin integrating AI-assisted workflow alongside traditional pipeline",
+            "Extended Reality (option): introduce AR/VR/XR workflow for animation — a wholly new field for all school cohorts; By 2028+ students may have encountered AI image tools but not spatial media production",
+            "By 2028+ cohort: AI-assisted animation tools (Runway, Adobe Firefly video, Kling AI) are emerging in industry — begin integrating AI-assisted workflow alongside traditional pipeline",
             "Introduce festival and industry contexts: student film festivals, BAFTA albert sustainability practices, union structures (BECTU, Equity)",
             "Increase academic demand: expect students to locate their practice within animation theory (Lamarre, Wells, Cholodenko) — use the Contexts & Approaches L4 foundation"
           ]
@@ -416,7 +416,7 @@ const courses = [
             "Character Performance: advanced acting-through-animation; draw on the L5 rigging/character work; introduce mocap interpretation and performance capture concepts (growing in industry importance)",
             "Innovation in Animation: frame as research-led practice — students should be engaging with current AI-generative animation, immersive animation, and political/social animation practices",
             "Animation Industry Promotion: professional self-promotion, showreel editing, portfolio curation, networking skills; introduce to LinkedIn, professional festivals, industry events",
-            "For 2032+ cohorts: students may arrive with generative AI familiarity from school — L6 should interrogate the ethics, aesthetics and labour implications of AI in animation, not simply teach the tools",
+            "For 2031+ cohorts: students may arrive with generative AI familiarity from school — L6 should interrogate the ethics, aesthetics and labour implications of AI in animation, not simply teach the tools",
             "Critical Enquiry (option): academic dissertation or critical essay requiring independent theoretical engagement — prior school research skills (even reformed curriculum) will not fully prepare students for university-level scholarly writing; support explicitly",
             "Entrepreneurship for Creatives: for this cohort, freelancing and building a digital presence are intuitive (they are social media natives); focus on business skills they lack — contracts, IP, tax, pricing"
           ]
@@ -497,7 +497,7 @@ const courses = [
             "Storytelling across Platforms: students know storytelling from consuming media; make explicit the production logic of cross-platform narrative (serialisation, transmedia, platform affordances)",
             "Creative Industries & Professional Life: students typically have romanticised ideas of media careers; introduce the reality of the gig economy, freelancing, pay structures, and diversity issues in the industry",
             "Exploring Research in Media & Communication: most students will not have encountered academic research methods formally; teach how to find, evaluate and cite academic sources; distinguish between journalism and research",
-            "By 2029+ cohort: students will have had compulsory media literacy education including fake news detection, understanding of media institutions, and digital ethics — this foundational layer can be assumed and the L4 can build more quickly on analytical frameworks"
+            "By 2028+ cohort: students will have had compulsory media literacy education including fake news detection, understanding of media institutions, and digital ethics — this foundational layer can be assumed and the L4 can build more quickly on analytical frameworks"
           ]
         },
         L5: {
@@ -505,19 +505,19 @@ const courses = [
           content: [
             "Theories of Media & Communication: this is often where students find the intellectual step-change between school and university most sharply — introduce theorists (Hall, Foucault, Gramsci, Chomsky, Habermas, boyd) carefully with contextual application, not theory-then-application separation",
             "Internet Cultures (pathway): students are native participants in internet culture; the challenge is teaching them to analyse their own lived experience critically using academic frameworks — defamiliarisation is key",
-            "Media & Communication Research: from 2030+ cohorts will have stronger oracy skills and potentially data literacy from new Computing GCSE — research methods teaching can build on more confident analytical thinking",
-            "Working in Digital Media 1: professional placement preparation; many students will underestimate the importance of workplace communication skills — the new oracy framework in schools will produce better communicators from 2030+ but prior cohorts need explicit support",
+            "Media & Communication Research: from 2028+ cohorts will have stronger oracy skills and potentially data literacy from new Computing GCSE — research methods teaching can build on more confident analytical thinking",
+            "Working in Digital Media 1: professional placement preparation; many students will underestimate the importance of workplace communication skills — the new oracy framework in schools will produce better communicators from 2028+ but prior cohorts need explicit support",
             "Mobile First / Podcast / Content Communities (options): students are native users of these forms; the pedagogical challenge is professionalising their intuitive practice — teach industry standards, legal requirements, audience research methods"
           ]
         },
         L6: {
           pitch: "Advanced independent inquiry and professional readiness — students should demonstrate critical intellectual and professional maturity.",
           content: [
-            "Data & Society (pathway): for cohorts before 2030, data literacy will be minimal — introduce data journalism concepts, visualisation tools (Flourish, Datawrapper), and platform data ethics from scratch; from 2030+ the new Computing GCSE means stronger baseline data literacy",
+            "Data & Society (pathway): for cohorts before 2030, data literacy will be minimal — introduce data journalism concepts, visualisation tools (Flourish, Datawrapper), and platform data ethics from scratch; from 2028+ the new Computing GCSE means stronger baseline data literacy",
             "Advanced Content Creation with AI (option): this is an emerging and critical module — by 2028+, students will increasingly have used generative AI tools; the module should focus on professional-grade use, ethics, copyright implications (EU AI Act, UK position), and what distinguishes human creative judgement",
             "Media Law, Regulation & Ethics: copyright, defamation, GDPR, AI content regulation — these topics are not covered in school at all (even in reformed curriculum) and are purely university-level content; ensure this module is not diminished",
             "Dissertation: students often arrive without academic writing skills sufficient for a 10,000-word dissertation; from 2028+ students will have stronger oracy (verbal argument) but written academic skills still need scaffolding through L5",
-            "Technology, Culture & Society (option): AI, surveillance capitalism, platform monopolies, digital colonialism — from 2030+ students will have more foundational AI literacy making this module richer in discussion; ensure content stays ahead of what schools teach"
+            "Technology, Culture & Society (option): AI, surveillance capitalism, platform monopolies, digital colonialism — from 2028+ students will have more foundational AI literacy making this module richer in discussion; ensure content stays ahead of what schools teach"
           ]
         }
       }
@@ -540,7 +540,7 @@ const courses = [
       unknown: ['News gathering and source verification methods','Freedom of Information requests, court reporting restrictions','Shorthand (no longer widely taught)','Data journalism techniques','Media law: defamation, contempt of court, reporting restrictions, source protection','Press regulation (IPSO, Impress) and broadcast regulation (Ofcom)','Investigative journalism methodologies','Sub-editing and copy editing standards','Newsroom structure, editorial hierarchy, production cycles']
     },
     advice: {
-      general: "Journalism students arrive with strong media consumption habits and critical awareness (especially those with A Level Media Studies) but without the professional skills of news production. The reformed curriculum from 2028 onwards strengthens foundational media literacy, including understanding misinformation, which is directly relevant. However, professional journalism practice — source verification, media law, data journalism — remains entirely new at university level.",
+      general: "Journalism students arrive with strong media consumption habits and critical awareness (especially those with A Level Media Studies) but without the professional skills of news production. The reformed curriculum from 2027 onwards strengthens foundational media literacy, including understanding misinformation, which is directly relevant. However, professional journalism practice — source verification, media law, data journalism — remains entirely new at university level.",
       levels: {
         L4: {
           pitch: "Foundation in professional journalism — bridge from critical media consumer to news producer.",
@@ -549,7 +549,7 @@ const courses = [
             "Creating Digital Content: teach CMS use (WordPress), structured article formats (inverted pyramid), headline writing, SEO basics — none of this is taught in schools",
             "Digital Media & Society: use this module to introduce the political economy of news — platform dominance, local news decline, the BBC's public service model — building on GCSE/A Level Media Industry knowledge",
             "Research Skills: journalists must verify and attribute; introduce source verification techniques, Freedom of Information basics, and distinguishing primary from secondary sources in a news context",
-            "By 2029+ cohort: students will have had media literacy education including fake news and misinformation identification; leverage this to move more quickly to professional source verification and editorial ethics"
+            "By 2028+ cohort: students will have had media literacy education including fake news and misinformation identification; leverage this to move more quickly to professional source verification and editorial ethics"
           ]
         },
         L5: {
@@ -558,7 +558,7 @@ const courses = [
             "Specialist News & Features: introduce long-form journalism, feature writing conventions, interview technique, structure and narrative journalism — forms not practised at GCSE/A Level",
             "Politics, Journalism & the Media: assume students have GCSE/A Level Media theory on news and political media; deepen with academic frameworks (Herman/Chomsky Manufacturing Consent, Curran/Seaton, Habermas public sphere) — the step up from school analysis to university theory must be bridged explicitly",
             "Podcast & Audio Production: audio journalism is a growing medium; schools do not teach radio journalism; teach recording, editing, structuring audio narratives — these are entirely new skills",
-            "Data journalism (via Data & Society at L6 preparation): begin introducing data literacy at L5 — spreadsheet journalism, using Flourish/Datawrapper; from 2030+ cohorts will have stronger data literacy from new Computing GCSE making this accessible earlier",
+            "Data journalism (via Data & Society at L6 preparation): begin introducing data literacy at L5 — spreadsheet journalism, using Flourish/Datawrapper; from 2028+ cohorts will have stronger data literacy from new Computing GCSE making this accessible earlier",
             "Diversity & Inclusion in Newsrooms: the reformed curriculum from 2028 has stronger representation commitments; students will be more sensitised to diversity issues but still need professional journalism context"
           ]
         },
@@ -566,9 +566,9 @@ const courses = [
           pitch: "Professional readiness — students should be capable of entering graduate journalism training schemes or postgraduate journalism MAs.",
           content: [
             "Media Law, Regulation & Ethics: this is critical and has NO school-curriculum equivalent — defamation, contempt of court, data protection (GDPR in journalism), source protection, drone journalism law; pitch as entirely new professional knowledge",
-            "Advanced Content Creation with AI: AI tools in newsrooms (Automated Insights, Reuters Lynx, BBC's Sallie system); from 2030+ students will already use AI; focus on editorial judgement, verification in the age of deepfakes, and ethical use of AI in news — these are purely university-level distinctions",
+            "Advanced Content Creation with AI: AI tools in newsrooms (Automated Insights, Reuters Lynx, BBC's Sallie system); from 2028+ students will already use AI; focus on editorial judgement, verification in the age of deepfakes, and ethical use of AI in news — these are purely university-level distinctions",
             "Long Form Journalism (option): documentary-length journalism; pitch as distinct from short-form social media that students are expert in; teach structure, research depth, narrative arc across 5,000+ words",
-            "Data & Society (pathway): data journalism — Python/R basics for journalists, OSINT tools, public data sources (ONS, Companies House, HESA); from 2030+ students have better data literacy foundations",
+            "Data & Society (pathway): data journalism — Python/R basics for journalists, OSINT tools, public data sources (ONS, Companies House, HESA); from 2028+ students have better data literacy foundations",
             "Dissertation: journalism students often struggle with academic conventions; ensure L5 scaffolds the transition from journalistic writing to academic argumentation"
           ]
         }
@@ -592,7 +592,7 @@ const courses = [
       unknown: ['Professional camera operation (cinema cameras: Sony FS7, RED, ARRI)','Broadcast audio standards (radio mics, boom mic technique, levels)','Professional editing workflows (colour grading, audio mixing, post-production pipeline)','Podcast production at broadcast standard','Livestreaming professional setup','UX/UI design principles','3D and interactive media production','Platform algorithm strategy and professional analytics','Media law relevant to content creators']
     },
     advice: {
-      general: "This is the most intuitive course for contemporary students — they are prolific digital media producers on social platforms. The pedagogical challenge is professionalising their already strong intuitive production skills. Students entering from 2030+ will have stronger AI literacy which makes advanced content creation modules richer, but all cohorts will still require significant upskilling in broadcast-standard technical skills and academic rigour.",
+      general: "This is the most intuitive course for contemporary students — they are prolific digital media producers on social platforms. The pedagogical challenge is professionalising their already strong intuitive production skills. Students entering from 2028+ will have stronger AI literacy which makes advanced content creation modules richer, but all cohorts will still require significant upskilling in broadcast-standard technical skills and academic rigour.",
       levels: {
         L4: {
           pitch: "Professionalise — help students make the leap from social media production to broadcast and professional digital media standards.",
@@ -610,7 +610,7 @@ const courses = [
             "Mobile First: Video & Social Media Content: students know the consumer side deeply; teach the professional layer — content strategy, analytics interpretation, branded content rules, paid promotion ethics",
             "Podcast & Audio Production: audio as a serious medium is often revelatory for this cohort; teach sound design, radio drama conventions, documentary audio — forms that are new even to students who have listened extensively",
             "Sports & Outside Broadcast (option): complex multi-camera production, outside broadcast infrastructure — entirely new territory; teach industry structure (OB trucks, replay systems, director coordination)",
-            "3D Interactive Media Development (option): from 2030+ students will have broader computing education; introduce WebGL, Unity/Unreal for interactive experiences; earlier cohorts need more foundational digital skills",
+            "3D Interactive Media Development (option): from 2028+ students will have broader computing education; introduce WebGL, Unity/Unreal for interactive experiences; earlier cohorts need more foundational digital skills",
             "AI content tools: begin introducing Runway ML, Adobe Firefly, Sora-type tools — frame as part of professional toolkit with critical evaluation of copyright, ethics, disclosure"
           ]
         },
@@ -618,7 +618,7 @@ const courses = [
           pitch: "Advanced professional output — the Digital Media Project should demonstrate industry-standard quality.",
           content: [
             "Digital Media Project: this capstone should reflect the student's chosen specialisation at professional quality; by this level, AI tools should be part of the workflow with critical reflection",
-            "Advanced Content Creation with AI: by 2030+, this topic becomes more practically rich as students arrive with AI tool experience; shift from 'what is AI in media' to 'how do we use it professionally and critically'",
+            "Advanced Content Creation with AI: By 2028+, this topic becomes more practically rich as students arrive with AI tool experience; shift from 'what is AI in media' to 'how do we use it professionally and critically'",
             "Entrepreneurship for Creatives: freelance content creation and digital media entrepreneurship are natural career paths for this cohort; teach contracts, IP ownership, platform T&C implications, tax for freelancers",
             "Data & Society: platform data, algorithmic curation, surveillance capitalism, content creator economy — leverage students' personal platform experience as a starting point for critical inquiry"
           ]
@@ -652,7 +652,7 @@ const courses = [
             "Digital Media & Society: connect critical media theory to commercial media — understand advertising as ideology (Williamson's Decoding Advertisements, Baudrillard's consumer society) — build on Media Studies A Level analysis",
             "Storytelling across Platforms: in a PR/advertising context, teach brand narrative, integrated campaigns, tone of voice; distinguish authentic brand communication from spin",
             "Research Skills: teach primary research methods used in communications (consumer surveys, focus groups, desk research, audience segmentation) — fundamentally different from journalistic or academic research",
-            "From 2029+ cohort: students will have had stronger media literacy education; use this to build quickly into discussions of advertising ethics and the transparency of influencer culture"
+            "from 2028+ cohort: students will have had stronger media literacy education; use this to build quickly into discussions of advertising ethics and the transparency of influencer culture"
           ]
         },
         L5: {
@@ -660,7 +660,7 @@ const courses = [
           content: [
             "Consumer Culture & Society (pathway): Veblen, Bourdieu, Featherstone — consumer culture theory; most students will find this an intellectually exciting framework for understanding their own media consumption",
             "Strategic & Marketing Communications (pathway): teach SOSTAC, RACE, the communications planning process; these are entirely absent from school curricula and are core professional competencies",
-            "Marketing data and analytics: from 2030+ cohorts, stronger data literacy from new Computing GCSE means this audience can engage more deeply with marketing analytics tools (Google Analytics, Meta Ads Manager, HubSpot)",
+            "Marketing data and analytics: from 2028+ cohorts, stronger data literacy from new Computing GCSE means this audience can engage more deeply with marketing analytics tools (Google Analytics, Meta Ads Manager, HubSpot)",
             "Influencer marketing as a professional discipline: students are deeply familiar with influencer culture as consumers; teach the professional layer — disclosure rules (ASA guidelines), contracts, ROI measurement, audience authenticity",
             "Crisis communications: introduce PR crisis management theory and practice (Coombs Situational Crisis Communication Theory) — entirely new at university level for all cohorts"
           ]
@@ -670,7 +670,7 @@ const courses = [
           content: [
             "Specialist Public Relations (option): advanced PR practice — investor relations, public affairs, corporate PR, internal communications; these specialist areas are entirely absent from school education",
             "Creative Advertising (option): teach the creative process of advertising from insight to idea to execution; introduce award-winning work and the relationship between creative director, copywriter and art director",
-            "Data & Society (pathway): data-driven marketing, programmatic advertising, cookie deprecation, privacy-first targeting, AI in advertising — by 2030+ students will have data literacy foundations but marketing data applications are still university-level",
+            "Data & Society (pathway): data-driven marketing, programmatic advertising, cookie deprecation, privacy-first targeting, AI in advertising — By 2028+ students will have data literacy foundations but marketing data applications are still university-level",
             "Media Law, Regulation & Ethics: advertising standards (CAP/BCAP), consumer protection law, GDPR in direct marketing, greenwashing regulation — critical for professional practice and wholly new",
             "Advanced Content Creation with AI: generative AI in advertising and PR (copy, images, campaign ideation); teach copyright implications, disclosure requirements, and the ethical use of AI-generated content in commercial contexts"
           ]
@@ -725,7 +725,7 @@ const courses = [
             "Research Project (Screen): the academic dissertation or practice-led research project; Film BA students who had A Level Film Studies may be stronger academic writers than average but dissertation-length independent research is a new challenge for all",
             "Working in the Screen Industries: ScreenSkills accreditation context; teach the reality of entry-level screen work — runner roles, spec scripts, co-production networking; cover BBC Diversity Commissioning, the BFI funding landscape",
             "Advanced Screenwriting (option): professional screenwriting craft — final draft formatting, coverage, pitching; introduce the Writers' Guild of America/BAFTA Breakthrough Brit programme",
-            "Advanced Documentary (option): from 2030+ students will have had stronger AI literacy; AI in documentary (deepfakes, synthetic media ethics, AI narration) becomes a critical contemporary issue to address directly",
+            "Advanced Documentary (option): from 2028+ students will have had stronger AI literacy; AI in documentary (deepfakes, synthetic media ethics, AI narration) becomes a critical contemporary issue to address directly",
             "AI in the screen industries: regardless of year, by 2028 all Film BA graduates will enter a film industry actively grappling with AI-generated imagery and scriptwriting; this should be addressed critically at L6 with industry case studies"
           ]
         }
@@ -749,7 +749,7 @@ const courses = [
       unknown: ['Professional typography at depth (type anatomy, kerning, leading, grid systems, typographic hierarchy)','Brand identity development from strategy to visual language','Print production specifications (CMYK, bleed, slug, registration, spot colours)','Publishing and editorial design (grid systems, master pages, long document design)','UX/UI design research and prototyping (Figma, wireframing, user testing)','Design research methodologies (ethnography, participatory design)','Motion graphics and kinetic typography','Design history beyond superficial knowledge','Professional client communication and brief management','Web standards and accessible design (WCAG)']
     },
     advice: {
-      general: "Graphic Design students arrive with the widest range of prior skills of any course group: from very strong A Level Graphic Design students with substantial Adobe Suite experience, to students from Art backgrounds with strong visual instincts but limited technical design knowledge. The reformed curriculum (particularly EBacc removal) should increase the proportion of students who have studied A Level Graphic Design from 2029+, potentially raising the average entry-level technical competency. However, professional-standard typography, print production, and digital design remain university territory.",
+      general: "Graphic Design students arrive with the widest range of prior skills of any course group: from very strong A Level Graphic Design students with substantial Adobe Suite experience, to students from Art backgrounds with strong visual instincts but limited technical design knowledge. The reformed curriculum (particularly EBacc removal) should increase the proportion of students who have studied A Level Graphic Design from 2028+, potentially raising the average entry-level technical competency. However, professional-standard typography, print production, and digital design remain university territory.",
       levels: {
         L4: {
           pitch: "Equalise and deepen — build shared foundational standards across diverse entry levels.",
@@ -764,11 +764,11 @@ const courses = [
         L5: {
           pitch: "Professional competency — students should produce work of publishable and client-presentable quality.",
           content: [
-            "Advanced Typography: typeface design awareness, type systems at scale, typographic rule-breaking with understanding; typesetting for multiple platforms (print vs. screen vs. environmental); from 2029+ students will have stronger digital awareness but type-setting craft requires hands-on teaching regardless of digital background",
+            "Advanced Typography: typeface design awareness, type systems at scale, typographic rule-breaking with understanding; typesetting for multiple platforms (print vs. screen vs. environmental); from 2028+ students will have stronger digital awareness but type-setting craft requires hands-on teaching regardless of digital background",
             "Brand Identity Design: teach brand strategy before visual execution; students from Marketing/Business backgrounds (common on this course) will understand brand positioning; those from Art backgrounds will need the strategic layer introduced",
-            "Digital & Interactive Design: Figma, prototyping, user research, accessibility (WCAG 2.1) — by 2030+ students will have broader digital literacy; introduce UX research methods (user interviews, affinity mapping, journey mapping) that are wholly new at this level",
+            "Digital & Interactive Design: Figma, prototyping, user research, accessibility (WCAG 2.1) — By 2028+ students will have broader digital literacy; introduce UX research methods (user interviews, affinity mapping, journey mapping) that are wholly new at this level",
             "Motion Graphics (option): After Effects, kinetic typography, brand motion — growing industry demand; students may have exposure to motion from TikTok/social media but professional motion design is a distinct skill",
-            "From 2030+: AI design tools (Midjourney, Firefly, Canva AI, Figma AI plugins) will be part of students' informal toolkit; introduce professional-grade AI integration alongside critical discussion of homogenisation, copyright, and displacement of illustration/photography"
+            "from 2028+: AI design tools (Midjourney, Firefly, Canva AI, Figma AI plugins) will be part of students' informal toolkit; introduce professional-grade AI integration alongside critical discussion of homogenisation, copyright, and displacement of illustration/photography"
           ]
         },
         L6: {
@@ -777,7 +777,7 @@ const courses = [
             "Major Project: students must develop a self-initiated brief; the transition from responding to briefs to generating them is the key L6 pedagogical challenge; introduce Branding Week/ISTD competition contexts as frameworks for ambitious self-initiated work",
             "Professional Practice: portfolio curation (printed and digital portfolio), presenting work to industry panels, interview technique, contract negotiation — none of this exists in school curricula and is purely professional education",
             "Dissertation / Practice-Based Research: graphic design theory and history as an academic discipline; students from strong A Level Graphic Design backgrounds will have research skills but academic citation and argument at dissertation level is new",
-            "AI in Graphic Design: by 2028 this is the central professional debate in the design industry; teach the ethics, copyright cases (Getty v. Stability AI), and how to articulate human design value vs. AI generation; students from 2030+ will need this framed as professional positioning, not just technology awareness"
+            "AI in Graphic Design: by 2028 this is the central professional debate in the design industry; teach the ethics, copyright cases (Getty v. Stability AI), and how to articulate human design value vs. AI generation; students from 2028+ will need this framed as professional positioning, not just technology awareness"
           ]
         }
       }
@@ -820,7 +820,7 @@ const courses = [
             "Illustration Impact: illustration as social, political and activist practice; from 2028+ students will have stronger awareness of social justice issues embedded in citizenship curriculum; use this as a foundation for exploring illustration's political role",
             "Image-making Systems: digital workflow at professional level (Photoshop, Illustrator at production standard; preparing files for print, screen, animation); even students with strong self-taught digital skills will need professional workflow standards",
             "Visual Storytelling: picturebooks, graphic novels, sequential illustration — narrative structure in image sequences; teach panel grammar, pacing, character consistency across sequences",
-            "Extended Reality (option): AR illustration, interactive image experiences — growing commercial field; from 2030+ students may have broader digital literacy but AR authoring tools (Spark AR, Adobe Aero) remain genuinely new at this level",
+            "Extended Reality (option): AR illustration, interactive image experiences — growing commercial field; from 2028+ students may have broader digital literacy but AR authoring tools (Spark AR, Adobe Aero) remain genuinely new at this level",
             "Branding & Identity (option): illustrators increasingly work with brands; teach how illustration integrates with brand guidelines and identity systems"
           ]
         },
@@ -873,7 +873,7 @@ const courses = [
             "Going Live! TV Studio Production: multi-camera gallery direction under pressure; this is the most unique and demanding module in terms of new skills — teach director-floor manager communication, talkback etiquette, vision mixing timing",
             "TV Narratives: Traditions & Innovations: deepen students' existing analytical frameworks with contemporary academic approaches; address streaming's disruption of television form (Netflix season vs. weekly broadcast; global format trade)",
             "TV Advertising & Branded Content (option): from 2028+ students will have stronger media literacy around advertising; the branded content and advertiser-funded programming area is growing; teach OFCOM rules on advertising identification in TV content",
-            "By 2030+: students will have had AI literacy education; introduce AI in television production (AI-assisted editing, deepfake regulations in broadcasting, automated sports production)"
+            "By 2028+: students will have had AI literacy education; introduce AI in television production (AI-assisted editing, deepfake regulations in broadcasting, automated sports production)"
           ]
         },
         L6: {
@@ -882,7 +882,7 @@ const courses = [
             "Final Major Production: the professional graduation production; emphasise post-production to broadcast standard; teach self-distribution (Film Festivals, YouTube production showcase); introduce the ScreenSkills Graduate Talent programme",
             "Working in the TV Industry: entry points differ by specialism — researcher/PA for documentary, runner/2nd AD for drama, journalist researcher for news; teach the reality of each pathway; address diversity and inclusion schemes (Channel 4 Indie Growth Fund, BBC Diversity Commissioning)",
             "Dissertation/Research: television studies at Level 6 requires engagement with scholarly literature beyond set text analysis; students from A Level Media Studies will have good textual analysis skills but academic argumentation at dissertation level is still a significant step",
-            "From 2030+: AI in broadcasting becomes central — address deepfakes in news, AI-generated characters (Screen Actors Guild concerns in the UK context), automated highlight generation for sports; these topics are purely university-level but will be increasingly familiar from the students' broader AI literacy"
+            "from 2028+: AI in broadcasting becomes central — address deepfakes in news, AI-generated characters (Screen Actors Guild concerns in the UK context), automated highlight generation for sports; these topics are purely university-level but will be increasingly familiar from the students' broader AI literacy"
           ]
         }
       }
@@ -905,7 +905,7 @@ const courses = [
       unknown: ['Professional 3D modelling topology and poly count management for games','Texturing workflows (Substance Painter, PBR material pipeline)','Rigging and skinning for game characters','Shader development and technical art','Environment art at AAA studio quality level','Game art pipeline and version control (Perforce, Git for art)','Art direction and style guide development','Concept art at industry standard (speed painting, orthographic views, material studies)','Optimisation and LOD (Level of Detail) systems']
     },
     advice: {
-      general: "Games Art students are typically highly motivated, passionate about games, and often arrive with self-taught digital art skills. Many will have BTEC-level game art experience. The challenge is bridging the gap between self-taught/BTEC-level and professional AAA-studio-standard work. From 2029+, the broader Computing GCSE will improve digital literacy generally; from 2030+ the revitalised arts curriculum should bring stronger foundational drawing skills.",
+      general: "Games Art students are typically highly motivated, passionate about games, and often arrive with self-taught digital art skills. Many will have BTEC-level game art experience. The challenge is bridging the gap between self-taught/BTEC-level and professional AAA-studio-standard work. from 2028+, the broader Computing GCSE will improve digital literacy generally; from 2028+ the revitalised arts curriculum should bring stronger foundational drawing skills.",
       levels: {
         L4: {
           pitch: "Build professional fundamentals — elevate self-taught and BTEC skills to professional-pipeline standards.",
@@ -915,7 +915,7 @@ const courses = [
             "Game Engines & Mechanics: students may have dabbled in Unity/Unreal; teach the professional deployment workflow, asset import settings, collision, and basic scripting for art purposes",
             "Environment Art & Design: composition and level layout principles, visual hierarchy in 3D environments, lighting for mood; connect to architecture, photography and cinematic composition principles students may know from art backgrounds",
             "Creative Industry Skills: the games industry is large and structurally complex; introduce studio types (AAA vs indie vs serious games), roles (concept artist, environment artist, character artist, technical artist, UI artist), hiring processes, and portfolio requirements",
-            "From 2030+: students will have stronger data literacy and AI awareness from new Computing GCSE; introduce AI art tools (Midjourney, Stable Diffusion) as industry context alongside ethical/copyright debate"
+            "from 2028+: students will have stronger data literacy and AI awareness from new Computing GCSE; introduce AI art tools (Midjourney, Stable Diffusion) as industry context alongside ethical/copyright debate"
           ]
         },
         L5: {
@@ -924,7 +924,7 @@ const courses = [
             "3D World Creation (Games Art pathway): advanced environment art — terrain, foliage systems, atmospheric lighting, PBR materials, LOD management; the quality gap between BTEC-level and professional environment art is where most students work hardest",
             "Character & Creature Design: from concept through to game-ready 3D asset with proper rigging; teach industry-standard character art pipeline (ZBrush sculpt → retopology → UV → texturing in Substance); highly new even for students with self-taught 3D skills",
             "Concepting for Games (option): develop concept art skills to professional level — orthographic views, material studies, lighting variations, design iteration; students' self-taught concept art is often strong in imagination but lacks the professional communication discipline",
-            "Technical Art: introduce shader creation, Blender/Unreal material graphs, particle systems; this is where programming meets art — from 2030+ students with broader computing education may find this more accessible",
+            "Technical Art: introduce shader creation, Blender/Unreal material graphs, particle systems; this is where programming meets art — from 2028+ students with broader computing education may find this more accessible",
             "AI art in games: address Generative AI use in games concept art (Ubisoft, EA, indie studios) — students will be both excited and concerned; teach professional ethical positioning and where AI augments rather than replaces art skills"
           ]
         },
@@ -933,8 +933,8 @@ const courses = [
           content: [
             "Major Project (Games Art): the showreel centrepiece; teach students to select the work that best demonstrates professional hire-ability, not just personal favourite work; introduce Artstation portfolio strategy",
             "Professional Practice: job application in games — Artstation profile, LinkedIn for games, studio talent programmes (EA Game Studios, Ubisoft NxtGen, the Develop: conference job fair); graduate programmes are competitive and require portfolio preparation beyond academic completion",
-            "Game Production & Enterprise: indie game development and entrepreneurship; Kickstarter for games, Steam Greenlight equivalent, EGX Rezzed indie showcase; from 2030+ students will have stronger entrepreneurial digital skills",
-            "From 2032+ cohorts: AI art generation will be embedded in games industry workflows (concept ideation, texture variation, background generation); Level 6 must critically address both the competitive pressure this creates and the specialist 3D/technical skills that remain human-artisan territory",
+            "Game Production & Enterprise: indie game development and entrepreneurship; Kickstarter for games, Steam Greenlight equivalent, EGX Rezzed indie showcase; from 2028+ students will have stronger entrepreneurial digital skills",
+            "from 2031+ cohorts: AI art generation will be embedded in games industry workflows (concept ideation, texture variation, background generation); Level 6 must critically address both the competitive pressure this creates and the specialist 3D/technical skills that remain human-artisan territory",
             "Critical Enquiry (option): contextualise games art within art history, cultural theory, and the critical games studies discourse; students often resist academic framing of games — use Bogost, Flanagan, and game criticism to bridge practice and theory"
           ]
         }
@@ -958,7 +958,7 @@ const courses = [
       unknown: ['Formal game design methodology (MDA framework, Salen & Zimmerman game design vocabulary)','Level design principles (flow, pacing, player psychology, feedback loops)','Game balance theory and playtesting methodology','Game economy design (resources, progressions, monetisation models)','Narrative design as a discipline (non-linear narrative, branching dialogue systems)','User research and playtesting at professional standard','Game accessibility standards','Game localisation and global market design considerations','Game publishing, funding, and IP management']
     },
     advice: {
-      general: "Games Design students are typically analytically minded and design-curious, with deep personal game literacy. Many come from Computing backgrounds as well as creative backgrounds. The shared L4 with Games Art gives both groups foundational technical exposure, while the L5/L6 Games Design pathway develops design thinking, systems thinking, and narrative design as distinct competencies. From 2029+, the broader Computing GCSE gives stronger algorithmic and programming foundations; from 2030+, AI literacy will make machine learning applications in game design more accessible.",
+      general: "Games Design students are typically analytically minded and design-curious, with deep personal game literacy. Many come from Computing backgrounds as well as creative backgrounds. The shared L4 with Games Art gives both groups foundational technical exposure, while the L5/L6 Games Design pathway develops design thinking, systems thinking, and narrative design as distinct competencies. from 2028+, the broader Computing GCSE gives stronger algorithmic and programming foundations; from 2028+, AI literacy will make machine learning applications in game design more accessible.",
       levels: {
         L4: {
           pitch: "Introduce design thinking as a discipline — help students move from game player/critic to game designer.",
@@ -967,7 +967,7 @@ const courses = [
             "2D Game Art & Design: even students with strong computing backgrounds often have weaker visual skills; teach design fundamentals (colour, composition, iconography, UI readability) as core design competencies, not optional creative extras",
             "Creative Industry Skills: games industry roles and career paths relevant to design (Game Designer, Systems Designer, Level Designer, Narrative Designer, UX Designer); students often have an undifferentiated idea of 'game design' as a career",
             "Introduce the MDA framework (Mechanics, Dynamics, Aesthetics — Hunicke, LeBlanc, Zubek) as the foundational theoretical tool for game design analysis; students can immediately apply it to games they know well",
-            "From 2030+: students with new Computing GCSE will have stronger algorithmic thinking; build on this to introduce formal game mechanic analysis; introduce visual scripting (Blueprints, Bolt) as a bridge between design and code"
+            "from 2028+: students with new Computing GCSE will have stronger algorithmic thinking; build on this to introduce formal game mechanic analysis; introduce visual scripting (Blueprints, Bolt) as a bridge between design and code"
           ]
         },
         L5: {
@@ -976,8 +976,8 @@ const courses = [
             "Level & Experience Design: teach spatial design thinking — flow, affordance, signposting, player psychology; map design tools (radial vs. linear vs. open world tradeoffs); pacing theory; students' intuitive level analysis from playing becomes the starting point for professional design method",
             "System & Mechanic Design: formal balance theory, numerical design, probabilistic systems; this is where computing-background students often excel; teach analogue prototyping first (paper prototyping, card games) before digital implementation — clarifies design intent independent of technology",
             "Interactive Texts & Narratives (pathway): narrative design as a formal discipline; branching narrative tools (Twine, Ink/Inkle, Yarn Spinner); students with Media Studies backgrounds will approach character and story analytically; those from Computing backgrounds need the narrative design vocabulary introduced explicitly",
-            "UX/UI Design (option): from 2030+ students will have stronger digital literacy; HCI principles applied to games (accessibility, colour contrast, feedback systems); WCAG applied to game accessibility (Xbox Accessibility Guidelines, CVAA)",
-            "Extended Reality (option): VR/AR game design challenges; the unique UX design problems of immersive media; growing industry demand; students from 2030+ cohorts will be more digitally literate making spatial interface design concepts more accessible"
+            "UX/UI Design (option): from 2028+ students will have stronger digital literacy; HCI principles applied to games (accessibility, colour contrast, feedback systems); WCAG applied to game accessibility (Xbox Accessibility Guidelines, CVAA)",
+            "Extended Reality (option): VR/AR game design challenges; the unique UX design problems of immersive media; growing industry demand; students from 2028+ cohorts will be more digitally literate making spatial interface design concepts more accessible"
           ]
         },
         L6: {
@@ -1011,13 +1011,13 @@ const reforms = [
   { year: 2025, label: 'Review report published', type: 'past', text: '<strong>Final report published (autumn 2025)</strong>. Recommendations include: abolition of EBacc performance measures, compulsory media literacy in citizenship, broader arts curriculum entitlement, reformed GCSE/A Level frameworks, new oracy framework, expanded computing curriculum with AI and data literacy, and a stronger focus on climate and sustainability education.' },
   { year: 2026, label: 'Policy decisions & consultation', type: 'current', text: '<strong>Government response and statutory consultation</strong>. Subject associations, exam boards (AQA, OCR, Pearson Edexcel) and school networks begin developing new specifications. EBacc changes announced. Media literacy added to citizenship statutory guidance. New oracy framework enters National Curriculum statutory draft.' },
   { year: 2027, label: 'Specification development', type: 'future', text: '<strong>New GCSE and A Level specifications written</strong> by exam boards. Subject advisory groups (including BAFTA for film/media, Ukie for games, AoC for creative arts) contribute to new Computing, Media Studies, Art & Design, and Creative Arts GCSE/A Level frameworks. Teacher CPD and INSET programmes begin.' },
-  { year: 2028, label: 'New National Curriculum implemented', type: 'reform', text: '<strong>New National Curriculum begins teaching from September 2028.</strong> EBacc officially abolished. Compulsory media literacy embedded throughout KS1-4 citizenship. Oracy framework statutory. Arts curriculum entitlement strengthened. Climate literacy mandatory. New primary and KS3 computing curriculum with AI, data and ethical digital use from Year 1.' },
-  { year: 2029, label: 'New GCSE specifications begin', type: 'reform', text: '<strong>First teaching of new GCSE specifications</strong> (for examination in 2031). Includes: reformed Computing GCSE (AI literacy, data science, digital ethics alongside programming); reformed Media Studies GCSE with stronger production and digital media focus; new Creative Arts GCSE frameworks; broader A Level Media Studies update. Schools adapting timetables with greater arts/creative flexibility.' },
-  { year: 2030, label: 'New A Levels begin', type: 'reform', text: '<strong>First teaching of new A Level specifications</strong> (for examination in 2032). Includes: A Level Computing with AI and systems thinking; reformed A Level Film Studies; reformed A Level Media Studies; expanded A Level Creative Digital Media; new A Level Games Design (in development at OCR/Pearson). Oracy is assessable in all English Language qualifications.' },
-  { year: 2031, label: 'First reformed GCSE results', type: 'future', text: '<strong>First cohort sits reformed GCSEs.</strong> University admissions tutors begin to see applications including grades from new specifications. Students applying for 2031 entry will have sat both reformed GCSEs and (in most cases) old-specification A Levels. Transition assessment literacy guidance issued by UCAS.' },
-  { year: 2032, label: 'First reformed A Level results', type: 'future', text: '<strong>First cohort with fully reformed A Levels.</strong> Students entering university in 2032 will have sat new-specification GCSEs (2031) and new-specification A Levels (2032). This is the first fully-reformed cohort from secondary. University courses should be substantially re-designed by this point to avoid repeating reformed school content.' },
-  { year: 2033, label: 'Full reform bedded in', type: 'future', text: '<strong>First cohort who had new Computing from KS2.</strong> Students entering in 2033 will have had the reformed computing curriculum from primary school — AI literacy from Year 3, data concepts from Year 5, expanded digital skills throughout. Combined with reformed GCSE and A Level qualifications, this represents the highest-prepared cohort in the tool\'s scope.' },
-  { year: 2035, label: 'First fully reformed primary cohort', type: 'future', text: '<strong>Students who started primary school under the full reformed curriculum.</strong> These students will have had media literacy, oracy, AI ethics, data literacy, and creative arts entitlement from Reception onwards. University provision must be substantially more advanced to avoid repetition.' }
+  { year: 2027, label: 'New National Curriculum implemented', type: 'reform', text: '<strong>New National Curriculum begins teaching from September 2027.</strong> EBacc officially abolished. Compulsory media literacy embedded throughout KS1-4 citizenship. Oracy framework statutory. Arts curriculum entitlement strengthened. Climate literacy mandatory. New primary and KS3 computing curriculum with AI, data and ethical digital use from Year 1.' },
+  { year: 2028, label: 'New GCSE specifications begin', type: 'reform', text: '<strong>First teaching of new GCSE specifications</strong> (for examination in 2030). Includes: reformed Computing GCSE (AI literacy, data science, digital ethics alongside programming); reformed Media Studies GCSE with stronger production and digital media focus; new Creative Arts GCSE frameworks; broader A Level Media Studies update. Schools adapting timetables with greater arts/creative flexibility.' },
+  { year: 2029, label: 'New A Levels begin', type: 'reform', text: '<strong>First teaching of new A Level specifications</strong> (for examination in 2031). Includes: A Level Computing with AI and systems thinking; reformed A Level Film Studies; reformed A Level Media Studies; expanded A Level Creative Digital Media; new A Level Games Design (in development at OCR/Pearson). Oracy is assessable in all English Language qualifications.' },
+  { year: 2030, label: 'First reformed GCSE results', type: 'future', text: '<strong>First cohort sits reformed GCSEs.</strong> University admissions tutors begin to see applications including grades from new specifications. Students applying for 2030 entry will have sat both reformed GCSEs and (in most cases) old-specification A Levels. Transition assessment literacy guidance issued by UCAS.' },
+  { year: 2031, label: 'First reformed A Level results', type: 'future', text: '<strong>First cohort with fully reformed A Levels.</strong> Students entering university in 2031 will have sat new-specification GCSEs (2030) and new-specification A Levels (2031). This is the first fully-reformed cohort from secondary. University courses should be substantially re-designed by this point to avoid repeating reformed school content.' },
+  { year: 2032, label: 'Full reform bedded in', type: 'future', text: '<strong>First cohort who had new Computing from KS2.</strong> Students entering in 2032 will have had the reformed computing curriculum from primary school — AI literacy from Year 3, data concepts from Year 5, expanded digital skills throughout. Combined with reformed GCSE and A Level qualifications, this represents the highest-prepared cohort in the tool\'s scope.' },
+  { year: 2034, label: 'First fully reformed primary cohort', type: 'future', text: '<strong>Students who started primary school under the full reformed curriculum.</strong> These students will have had media literacy, oracy, AI ethics, data literacy, and creative arts entitlement from Reception onwards. University provision must be substantially more advanced to avoid repetition.' }
 ];
 
 // ============================================================
@@ -1078,7 +1078,7 @@ function quickJump(id) {
 function renderOverview() {
   const profile = getCohortProfile(selectedYear);
   const isReformYear = REFORM_YEARS.includes(selectedYear);
-  const isPostReform = selectedYear >= 2035;
+  const isPostReform = selectedYear >= 2033;
   return `
 <div class="page-header">
   <div class="year-badge">
@@ -1090,7 +1090,7 @@ function renderOverview() {
 
 ${isReformYear ? `<div class="reform-banner orange"><div class="reform-banner-text"><strong>Reform Year:</strong> Students entering in ${selectedYear} fall within a key curriculum transition period. This cohort's school education has been affected by the autumn 2025 National Curriculum Review recommendations. See the <button data-action="reforms" style="background:none;border:none;color:var(--color-orange);font-weight:600;cursor:pointer;text-decoration:underline;font-size:inherit;">Reform Timeline</button> for full details.</div></div>` : ''}
 
-${isPostReform ? `<div class="reform-banner green"><div class="reform-banner-text"><strong>Post-Reform Cohort:</strong> Students entering in ${selectedYear} have benefited from substantial curriculum reforms. Their foundational knowledge in media literacy, digital skills, AI awareness and creative arts is significantly stronger than pre-2028 cohorts. Review individual course advice panels for specific implications.</div></div>` : ''}
+${isPostReform ? `<div class="reform-banner green"><div class="reform-banner-text"><strong>Post-Reform Cohort:</strong> Students entering in ${selectedYear} have benefited from substantial curriculum reforms. Their foundational knowledge in media literacy, digital skills, AI awareness and creative arts is significantly stronger than pre-2027 cohorts. Review individual course advice panels for specific implications.</div></div>` : ''}
 
 <div class="stats-row">
   <div class="stat-card"><div class="stat-value">${selectedYear}</div><div class="stat-label">Student Entry Year</div></div>
@@ -1119,31 +1119,31 @@ ${isPostReform ? `<div class="reform-banner green"><div class="reform-banner-tex
 <div class="section-title" style="margin-bottom:1rem;">Key School Knowledge Themes Across All Courses — ${selectedYear} Cohort</div>
 <div class="change-grid">
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Strong' : selectedYear >= 2031 ? 'Emerging' : 'Limited'}</span>
+    <span class="change-year-label ${selectedYear >= 2033 ? 'cy-2030' : selectedYear >= 2030 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2033 ? 'Strong' : selectedYear >= 2030 ? 'Emerging' : 'Limited'}</span>
     <div class="change-card-title">Digital & Media Literacy</div>
     <ul class="change-list">
-      ${selectedYear >= 2034 ? `<li>Compulsory media literacy from primary (KS1-4)</li><li>Misinformation and fake news detection</li><li>Understanding of media institutions and regulation</li><li>AI-generated content awareness</li>` : selectedYear >= 2031 ? `<li>Media literacy added to citizenship (late secondary)</li><li>Better misinformation awareness than pre-reform cohorts</li><li>Some institutional media knowledge</li>` : `<li>Only if Media Studies GCSE/A Level taken</li><li>No compulsory media literacy in citizenship</li><li>Consumer literacy only for most students</li>`}
+      ${selectedYear >= 2033 ? `<li>Compulsory media literacy from primary (KS1-4)</li><li>Misinformation and fake news detection</li><li>Understanding of media institutions and regulation</li><li>AI-generated content awareness</li>` : selectedYear >= 2030 ? `<li>Media literacy added to citizenship (late secondary)</li><li>Better misinformation awareness than pre-reform cohorts</li><li>Some institutional media knowledge</li>` : `<li>Only if Media Studies GCSE/A Level taken</li><li>No compulsory media literacy in citizenship</li><li>Consumer literacy only for most students</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Reformed' : selectedYear >= 2031 ? 'Transitional' : 'Limited'}</span>
+    <span class="change-year-label ${selectedYear >= 2033 ? 'cy-2030' : selectedYear >= 2030 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2033 ? 'Reformed' : selectedYear >= 2030 ? 'Transitional' : 'Limited'}</span>
     <div class="change-card-title">Computing & AI Literacy</div>
     <ul class="change-list">
-      ${selectedYear >= 2034 ? `<li>New Computing GCSE: AI, data science, digital ethics</li><li>AI literacy from KS2 (for youngest cohorts)</li><li>Data concepts and basic data literacy</li><li>Algorithmic understanding beyond Scratch/Python</li>` : selectedYear >= 2031 ? `<li>First new Computing GCSE cohort</li><li>Better data literacy than previous cohorts</li><li>Some AI awareness from updated computing</li>` : `<li>Programming basics (Python, Scratch)</li><li>Algorithms and data structures (CS theory)</li><li>No AI literacy in current computing curriculum</li><li>No data science or ethics component</li>`}
+      ${selectedYear >= 2033 ? `<li>New Computing GCSE: AI, data science, digital ethics</li><li>AI literacy from KS2 (for youngest cohorts)</li><li>Data concepts and basic data literacy</li><li>Algorithmic understanding beyond Scratch/Python</li>` : selectedYear >= 2030 ? `<li>First new Computing GCSE cohort</li><li>Better data literacy than previous cohorts</li><li>Some AI awareness from updated computing</li>` : `<li>Programming basics (Python, Scratch)</li><li>Algorithms and data structures (CS theory)</li><li>No AI literacy in current computing curriculum</li><li>No data science or ethics component</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Improving' : 'EBacc-squeezed'}</span>
+    <span class="change-year-label ${selectedYear >= 2033 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2033 ? 'Improving' : 'EBacc-squeezed'}</span>
     <div class="change-card-title">Creative Arts Education</div>
     <ul class="change-list">
-      ${selectedYear >= 2034 ? `<li>EBacc abolished — more students taking arts GCSEs</li><li>Revitalised arts curriculum entitlement</li><li>Higher proportion with formal creative qualifications</li><li>Stronger foundational art & design skills on average</li>` : `<li>EBacc squeeze: arts dropped for English Baccalaureate</li><li>Many students with limited formal arts education</li><li>Strong self-taught creative skills (especially digital)</li><li>BTEC creative pathways for vocational learners</li>`}
+      ${selectedYear >= 2033 ? `<li>EBacc abolished — more students taking arts GCSEs</li><li>Revitalised arts curriculum entitlement</li><li>Higher proportion with formal creative qualifications</li><li>Stronger foundational art & design skills on average</li>` : `<li>EBacc squeeze: arts dropped for English Baccalaureate</li><li>Many students with limited formal arts education</li><li>Strong self-taught creative skills (especially digital)</li><li>BTEC creative pathways for vocational learners</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Strong' : selectedYear >= 2031 ? 'Developing' : 'Standard'}</span>
+    <span class="change-year-label ${selectedYear >= 2033 ? 'cy-2030' : selectedYear >= 2030 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2033 ? 'Strong' : selectedYear >= 2030 ? 'Developing' : 'Standard'}</span>
     <div class="change-card-title">Oracy & Communication</div>
     <ul class="change-list">
-      ${selectedYear >= 2034 ? `<li>Oracy framework statutory — verbal skills formally assessed</li><li>Stronger presentation, debate and critical discussion skills</li><li>Formal oracy in all English Language qualifications</li>` : selectedYear >= 2031 ? `<li>Oracy framework introduced (statutory from 2028)</li><li>Improving but not yet fully embedded across schools</li>` : `<li>Literacy and writing prioritised over spoken communication</li><li>Some: presentations and oral assessments via Media Studies NEA</li><li>Variable quality of public speaking skills at entry</li>`}
+      ${selectedYear >= 2033 ? `<li>Oracy framework statutory — verbal skills formally assessed</li><li>Stronger presentation, debate and critical discussion skills</li><li>Formal oracy in all English Language qualifications</li>` : selectedYear >= 2030 ? `<li>Oracy framework introduced (statutory from 2028)</li><li>Improving but not yet fully embedded across schools</li>` : `<li>Literacy and writing prioritised over spoken communication</li><li>Some: presentations and oral assessments via Media Studies NEA</li><li>Variable quality of public speaking skills at entry</li>`}
     </ul>
   </div>
 </div>
@@ -1167,7 +1167,7 @@ function renderCoursesView() {
       </div>
       <div class="course-card-body">
         <div class="intake-alert">
-          ${selectedYear >= 2035 ? `<strong>⬆ Elevated baseline</strong> — post-reform cohort with stronger foundations` : selectedYear >= 2031 ? `<strong>⚡ Transition cohort</strong> — emerging reforms in effect` : `<strong>Standard intake</strong> — pre-reform curriculum`}
+          ${selectedYear >= 2033 ? `<strong>⬆ Elevated baseline</strong> — post-reform cohort with stronger foundations` : selectedYear >= 2030 ? `<strong>⚡ Transition cohort</strong> — emerging reforms in effect` : `<strong>Standard intake</strong> — pre-reform curriculum`}
         </div>
       </div>
     </div>
@@ -1204,27 +1204,27 @@ function renderReformsView() {
   
   <div class="advice-section">
     <div class="advice-title">Media Studies (GCSE & A Level)</div>
-    <div class="advice-box"><strong>Current (pre-2029):</strong> AQA/OCR specifications teach media language, representation, audience, industry with set media products. NEA practical element. A Level adds theoretical frameworks (feminist theory, postcolonial theory, Marxist media theory). Uptake low compared to core subjects due to EBacc pressure.<br><br><strong>From 2029:</strong> Reformed GCSE specifications expected to include stronger digital media production, platform media analysis, and AI/synthetic media units. Greater practical portfolio emphasis. A Level from 2030 likely includes a dedicated digital ethics and AI content unit. Uptake expected to significantly increase with EBacc abolition.</div>
+    <div class="advice-box"><strong>Current (pre-2027):</strong> AQA/OCR specifications teach media language, representation, audience, industry with set media products. NEA practical element. A Level adds theoretical frameworks (feminist theory, postcolonial theory, Marxist media theory). Uptake low compared to core subjects due to EBacc pressure.<br><br><strong>From 2028:</strong> Reformed GCSE specifications expected to include stronger digital media production, platform media analysis, and AI/synthetic media units. Greater practical portfolio emphasis. A Level from 2030 likely includes a dedicated digital ethics and AI content unit. Uptake expected to significantly increase with EBacc abolition.</div>
   </div>
 
   <div class="advice-section">
     <div class="advice-title">Computing (GCSE & A Level)</div>
-    <div class="advice-box"><strong>Current (pre-2029):</strong> Focus on programming (Python), algorithms, data structures, Boolean logic, computer architecture. Very limited creative application or data literacy. No AI component. OCR, AQA, Pearson Edexcel all follow similar narrow structure.<br><br><strong>From 2029:</strong> New Computing GCSE expected to include: AI and machine learning principles, data literacy (collecting, cleaning, analysing data), digital ethics, cybersecurity in depth, and creative/applied computing projects. Programming remains but as one component among broader digital competencies. This is the single most significant change for Media & Communication courses — students will arrive with genuine AI conceptual literacy for the first time.</div>
+    <div class="advice-box"><strong>Current (pre-2027):</strong> Focus on programming (Python), algorithms, data structures, Boolean logic, computer architecture. Very limited creative application or data literacy. No AI component. OCR, AQA, Pearson Edexcel all follow similar narrow structure.<br><br><strong>From 2028:</strong> New Computing GCSE expected to include: AI and machine learning principles, data literacy (collecting, cleaning, analysing data), digital ethics, cybersecurity in depth, and creative/applied computing projects. Programming remains but as one component among broader digital competencies. This is the single most significant change for Media & Communication courses — students will arrive with genuine AI conceptual literacy for the first time.</div>
   </div>
 
   <div class="advice-section">
     <div class="advice-title">Art & Design (GCSE & A Level)</div>
-    <div class="advice-box"><strong>Current (pre-2028):</strong> Strong creative process framework (AO1-4: contextual, creative, record, present). Optional specialisms including Graphic Design, Photography, Textile, Fine Art. Uptake significantly reduced by EBacc — many schools dropped Art & Design as a GCSE option. A Level Art has strong NEA personal investigation.<br><br><strong>From 2028 onwards:</strong> Creative Arts Entitlement — all students guaranteed meaningful arts education at secondary level. EBacc abolition from 2028 means schools reintroduce arts options. New Primary Arts framework strengthens creative foundations from Year 1. From 2029: new/revised GCSE Art & Design specs with potentially stronger digital art and design components. Expect meaningfully higher proportion of students with formal art qualifications from 2030 cohort onwards.</div>
+    <div class="advice-box"><strong>Current (pre-2027):</strong> Strong creative process framework (AO1-4: contextual, creative, record, present). Optional specialisms including Graphic Design, Photography, Textile, Fine Art. Uptake significantly reduced by EBacc — many schools dropped Art & Design as a GCSE option. A Level Art has strong NEA personal investigation.<br><br><strong>from 2027 onwards:</strong> Creative Arts Entitlement — all students guaranteed meaningful arts education at secondary level. EBacc abolition from 2028 means schools reintroduce arts options. New Primary Arts framework strengthens creative foundations from Year 1. From 2028: new/revised GCSE Art & Design specs with potentially stronger digital art and design components. Expect meaningfully higher proportion of students with formal art qualifications from 2029 cohort onwards.</div>
   </div>
 
   <div class="advice-section">
     <div class="advice-title">Games Design (New GCSE/A Level in development)</div>
-    <div class="advice-box"><strong>Current:</strong> No standalone Games Design GCSE or A Level qualification in widespread use. BTEC Digital Games Production (Pearson) available at Level 2/3 as vocational alternative. Some schools run enrichment/extracurricular games design.<br><br><strong>In development:</strong> OCR and Pearson Edexcel are developing Games Design GCSE and A Level specifications for possible first teaching from 2029-30. If adopted, this would significantly change the entry-level knowledge of Games Design and Games Art students from approximately 2032 entry onwards. University curriculum should prepare to review L4 modules significantly at that point to avoid repetition.</div>
+    <div class="advice-box"><strong>Current:</strong> No standalone Games Design GCSE or A Level qualification in widespread use. BTEC Digital Games Production (Pearson) available at Level 2/3 as vocational alternative. Some schools run enrichment/extracurricular games design.<br><br><strong>In development:</strong> OCR and Pearson Edexcel are developing Games Design GCSE and A Level specifications for possible first teaching from 2028-29. If adopted, this would significantly change the entry-level knowledge of Games Design and Games Art students from approximately 2031 entry onwards. University curriculum should prepare to review L4 modules significantly at that point to avoid repetition.</div>
   </div>
 
   <div class="advice-section">
     <div class="advice-title">Film Studies (GCSE & A Level)</div>
-    <div class="advice-box"><strong>Current:</strong> A Level Film Studies (WJEC/Eduqas and AQA) is one of the more demanding arts A Levels with strong theoretical engagement. GCSE Film Studies available but less widely taken than Media Studies. Set text approach for micro-element analysis.<br><br><strong>From 2030:</strong> Reformed A Level Film Studies expected to include a dedicated unit on digital filmmaking and streaming platforms, AI-generated film imagery, and global cinema beyond the European canon. Film BA students from 2032+ will arrive with more comprehensive analytical frameworks than current cohorts.</div>
+    <div class="advice-box"><strong>Current:</strong> A Level Film Studies (WJEC/Eduqas and AQA) is one of the more demanding arts A Levels with strong theoretical engagement. GCSE Film Studies available but less widely taken than Media Studies. Set text approach for micro-element analysis.<br><br><strong>From 2029:</strong> Reformed A Level Film Studies expected to include a dedicated unit on digital filmmaking and streaming platforms, AI-generated film imagery, and global cinema beyond the European canon. Film BA students from 2031+ will arrive with more comprehensive analytical frameworks than current cohorts.</div>
   </div>
 </div>
 `;
@@ -1251,7 +1251,7 @@ function showCourseDetail(id) {
 
 function renderCourseDetail(course) {
   const profile = getCohortProfile(selectedYear);
-  const hasReformNote = selectedYear >= 2031;
+  const hasReformNote = selectedYear >= 2030;
   const hasL3 = !!course.modules.L3;
   
   let levelKeys = hasL3 ? ['L3','L4','L5','L6'] : ['L4','L5','L6'];
@@ -1296,8 +1296,8 @@ function renderCourseDetail(course) {
         <ul class="knowledge-list kl-unknown">${course.schoolKnowledge.unknown.map(i=>`<li>${i}</li>`).join('')}</ul>
       </div>
     </div>
-    ${selectedYear >= 2031 ? `<div class="knowledge-card" style="background:var(--color-success-highlight);border-color:var(--color-success);">
-      <div class="knowledge-card-title kc-success">Emerging from ${selectedYear >= 2034 ? 'reformed' : 'transitional'} curriculum (new from this cohort onwards)</div>
+    ${selectedYear >= 2030 ? `<div class="knowledge-card" style="background:var(--color-success-highlight);border-color:var(--color-success);">
+      <div class="knowledge-card-title kc-success">Emerging from ${selectedYear >= 2033 ? 'reformed' : 'transitional'} curriculum (new from this cohort onwards)</div>
       <ul class="knowledge-list kl-new">
         ${selectedYear >= 2030 ? `
           <li>Compulsory media literacy embedded in citizenship (KS1-4)</li>
