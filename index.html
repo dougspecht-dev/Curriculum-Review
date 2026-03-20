@@ -336,14 +336,14 @@ a,button,[role="button"]{transition:color var(--transition),background var(--tra
 // DATA
 // ============================================================
 const YEARS = [2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
-const REFORM_YEARS = [2028,2029,2030];
+const REFORM_YEARS = [2031,2032,2033,2034];
 
 // Cohort profiles: what a student entering that year has been taught
 function getCohortProfile(year) {
-  if (year <= 2027) return 'pre-reform';
-  if (year === 2028) return 'transition-1'; // first year new NC taught
-  if (year === 2029) return 'transition-2'; // new GCSE specifications start
-  if (year >= 2030 && year <= 2031) return 'reform-early'; // new A levels start 2030
+  if (year <= 2030) return 'pre-reform'; // all old NC, old GCSEs (sat year-3), old A Levels (sat year-1)
+  if (year >= 2031 && year <= 2032) return 'transition'; // new NC in effect for some schooling, but old GCSE/A Level specs // first year new NC taught
+  if (year === 2033) return 'reform-early'; // first new A Levels (sat 2032), but old GCSEs (sat 2030) // new GCSE specifications start
+  if (year === 2034) return 'reform-mid'; // first new GCSEs (sat 2031) AND new A Levels (sat 2033) // new A levels start 2030
   return 'reform-full';
 }
 
@@ -352,9 +352,9 @@ function getCohortDescription(year) {
   const schoolYear = year - 15; // approx year they started primary (age 4, uni at 19)
   const descriptions = {
     'pre-reform': `Students entering in ${year} completed all education under the pre-2028 National Curriculum. They were educated under the 2014 National Curriculum with the EBacc still in force during their secondary years. Creative arts subjects (including Media Studies) were squeezed by the EBacc performance measures, meaning fewer students will have formal media, design or creative qualifications unless they specifically opted for arts/media pathways. Their computing education covered algorithms, programming and basic digital literacy only — no AI literacy, no data science concepts.`,
-    'transition-1': `Students entering in ${year} experienced the transition period. The new National Curriculum was implemented from September 2028, so this cohort's final secondary years (roughly Years 11–13) overlapped with the reform announcement and early preparation period. While they did not benefit from the reformed GCSE specifications (which start teaching in 2029), schools began adapting their curricula in anticipation. The EBacc was formally abolished, making arts subjects more accessible. Media literacy became compulsory in citizenship from primary — meaning this cohort will have had it embedded in their final secondary years. Expect improved critical media thinking compared to earlier cohorts, but limited change in formal qualifications.`,
-    'transition-2': `Students entering in ${year} are the first cohort to have sat the new, broader Computing GCSE (first teaching from September 2029 means this cohort took it in 2029). They will have a markedly stronger grounding in digital literacy, data concepts and AI awareness than any previous cohort. However, the new A Level specifications only began in 2030, so their sixth-form qualifications may still reflect older frameworks. The scrapping of EBacc means far more of this cohort will have studied arts and creative subjects at GCSE. Media literacy is now fully compulsory from primary, giving all students a shared foundation in critical media thinking.`,
-    'reform-early': `Students entering in ${year} have benefited from the new Computing GCSE (data literacy, AI awareness, broader digital skills) and the first cohort of new A Level specifications (from September 2030). EBacc abolition means a greater proportion will hold creative arts GCSEs and A Levels. The revitalised arts curriculum means stronger foundational skills in design, film appreciation and practical media. Oracy framework embedding means stronger verbal presentation and critical discussion skills. Media literacy compulsory throughout schooling means robust foundational awareness of representation, media institutions and digital ethics. However, curriculum changes take time to bed in — expect variability between schools.`,
+    'transition': `Students entering in ${year} sat their GCSEs in ${year - 3} and left sixth form in ${year - 1}, both under old specifications. However, the new National Curriculum was implemented from September 2028, so this cohort experienced some of their secondary education under the reformed framework. The EBacc was formally abolished during their schooling, and compulsory media literacy was introduced in citizenship. Schools began adapting their teaching in anticipation of the reforms, meaning this cohort will have had improved media literacy awareness and potentially broader creative subject exposure compared to earlier cohorts. Their formal qualifications (GCSEs and A Levels) still reflect older specifications, but classroom practice and school culture will have begun to shift. The oracy framework was introduced but may not yet be fully embedded. Expect a modest improvement in critical media thinking and slightly broader creative arts engagement compared to pre-reform cohorts, but no change in formal qualification content.`, The new National Curriculum was implemented from September 2028, so this cohort's final secondary years (roughly Years 11–13) overlapped with the reform announcement and early preparation period. While they did not benefit from the reformed GCSE specifications (which start teaching in 2029), schools began adapting their curricula in anticipation. The EBacc was formally abolished, making arts subjects more accessible. Media literacy became compulsory in citizenship from primary — meaning this cohort will have had it embedded in their final secondary years. Expect improved critical media thinking compared to earlier cohorts, but limited change in formal qualifications.`,
+    'reform-early': `Students entering in ${year} are the first cohort to have sat the new A Level specifications (first exams 2032), leaving sixth form in ${year - 1}. However, they sat their GCSEs in ${year - 3} under the old specifications. The new National Curriculum was in effect during their secondary years, meaning they benefited from the abolition of EBacc, compulsory media literacy in citizenship, and the oracy framework. The reformed Computing GCSE was available but this cohort sat GCSEs under the old specification. Their A Level qualifications reflect the new broader frameworks including AI, systems thinking, and reformed creative arts specifications. Expect improved digital literacy, stronger verbal communication skills, and greater creative arts uptake compared to pre-reform cohorts, but their GCSE-level foundations remain based on older specifications.`, (first teaching from September 2029 means this cohort took it in 2029). They will have a markedly stronger grounding in digital literacy, data concepts and AI awareness than any previous cohort. However, the new A Level specifications only began in 2030, so their sixth-form qualifications may still reflect older frameworks. The scrapping of EBacc means far more of this cohort will have studied arts and creative subjects at GCSE. Media literacy is now fully compulsory from primary, giving all students a shared foundation in critical media thinking.`,
+    'reform-mid': `Students entering in ${year} are the first cohort to have sat both the new GCSE specifications (first exams 2031) and new A Level specifications (first exams 2032). They sat their GCSEs in ${year - 3} under the reformed specifications and left sixth form in ${year - 1} with new A Levels. The EBacc was abolished before they chose their GCSE options, meaning a significantly higher proportion will hold creative arts GCSEs and A Levels. They have benefited from the reformed Computing GCSE (AI literacy, data science, digital ethics), the revitalised arts curriculum, compulsory media literacy throughout schooling, and the oracy framework. However, they started primary school under the old curriculum, so the depth of reform embedding varies. Expect strong AI literacy foundations, broader creative qualifications, and improved verbal communication skills compared to all previous cohorts.`, from the new Computing GCSE (data literacy, AI awareness, broader digital skills) and the first cohort of new A Level specifications (from September 2030). EBacc abolition means a greater proportion will hold creative arts GCSEs and A Levels. The revitalised arts curriculum means stronger foundational skills in design, film appreciation and practical media. Oracy framework embedding means stronger verbal presentation and critical discussion skills. Media literacy compulsory throughout schooling means robust foundational awareness of representation, media institutions and digital ethics. However, curriculum changes take time to bed in — expect variability between schools.`,
     'reform-full': `Students entering in ${year} have experienced the full reformed curriculum from primary through sixth form. This is the most prepared cohort: they have compulsory media literacy from Year 1 (citizenship), AI literacy embedded from KS2, broader computing qualifications, the revitalised arts curriculum, the new A Level frameworks, and the oracy framework. Creative subjects have full equal status in accountability measures, meaning far more of this cohort will hold creative GCSEs and A Levels. Expect significantly higher baseline knowledge in AI ethics, data literacy, media critique, digital production and creative theory compared to pre-reform cohorts.`
   };
   return descriptions[profile];
@@ -1078,7 +1078,7 @@ function quickJump(id) {
 function renderOverview() {
   const profile = getCohortProfile(selectedYear);
   const isReformYear = REFORM_YEARS.includes(selectedYear);
-  const isPostReform = selectedYear >= 2030;
+  const isPostReform = selectedYear >= 2035;
   return `
 <div class="page-header">
   <div class="year-badge">
@@ -1119,31 +1119,31 @@ ${isPostReform ? `<div class="reform-banner green"><div class="reform-banner-tex
 <div class="section-title" style="margin-bottom:1rem;">Key School Knowledge Themes Across All Courses — ${selectedYear} Cohort</div>
 <div class="change-grid">
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2030 ? 'cy-2030' : selectedYear >= 2028 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2030 ? 'Strong' : selectedYear >= 2028 ? 'Emerging' : 'Limited'}</span>
+    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Strong' : selectedYear >= 2031 ? 'Emerging' : 'Limited'}</span>
     <div class="change-card-title">Digital & Media Literacy</div>
     <ul class="change-list">
-      ${selectedYear >= 2030 ? `<li>Compulsory media literacy from primary (KS1-4)</li><li>Misinformation and fake news detection</li><li>Understanding of media institutions and regulation</li><li>AI-generated content awareness</li>` : selectedYear >= 2028 ? `<li>Media literacy added to citizenship (late secondary)</li><li>Better misinformation awareness than pre-reform cohorts</li><li>Some institutional media knowledge</li>` : `<li>Only if Media Studies GCSE/A Level taken</li><li>No compulsory media literacy in citizenship</li><li>Consumer literacy only for most students</li>`}
+      ${selectedYear >= 2034 ? `<li>Compulsory media literacy from primary (KS1-4)</li><li>Misinformation and fake news detection</li><li>Understanding of media institutions and regulation</li><li>AI-generated content awareness</li>` : selectedYear >= 2031 ? `<li>Media literacy added to citizenship (late secondary)</li><li>Better misinformation awareness than pre-reform cohorts</li><li>Some institutional media knowledge</li>` : `<li>Only if Media Studies GCSE/A Level taken</li><li>No compulsory media literacy in citizenship</li><li>Consumer literacy only for most students</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2030 ? 'cy-2030' : selectedYear >= 2029 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2030 ? 'Reformed' : selectedYear >= 2029 ? 'Transitional' : 'Limited'}</span>
+    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Reformed' : selectedYear >= 2031 ? 'Transitional' : 'Limited'}</span>
     <div class="change-card-title">Computing & AI Literacy</div>
     <ul class="change-list">
-      ${selectedYear >= 2030 ? `<li>New Computing GCSE: AI, data science, digital ethics</li><li>AI literacy from KS2 (for youngest cohorts)</li><li>Data concepts and basic data literacy</li><li>Algorithmic understanding beyond Scratch/Python</li>` : selectedYear >= 2029 ? `<li>First new Computing GCSE cohort</li><li>Better data literacy than previous cohorts</li><li>Some AI awareness from updated computing</li>` : `<li>Programming basics (Python, Scratch)</li><li>Algorithms and data structures (CS theory)</li><li>No AI literacy in current computing curriculum</li><li>No data science or ethics component</li>`}
+      ${selectedYear >= 2034 ? `<li>New Computing GCSE: AI, data science, digital ethics</li><li>AI literacy from KS2 (for youngest cohorts)</li><li>Data concepts and basic data literacy</li><li>Algorithmic understanding beyond Scratch/Python</li>` : selectedYear >= 2031 ? `<li>First new Computing GCSE cohort</li><li>Better data literacy than previous cohorts</li><li>Some AI awareness from updated computing</li>` : `<li>Programming basics (Python, Scratch)</li><li>Algorithms and data structures (CS theory)</li><li>No AI literacy in current computing curriculum</li><li>No data science or ethics component</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2029 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2029 ? 'Improving' : 'EBacc-squeezed'}</span>
+    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Improving' : 'EBacc-squeezed'}</span>
     <div class="change-card-title">Creative Arts Education</div>
     <ul class="change-list">
-      ${selectedYear >= 2029 ? `<li>EBacc abolished — more students taking arts GCSEs</li><li>Revitalised arts curriculum entitlement</li><li>Higher proportion with formal creative qualifications</li><li>Stronger foundational art & design skills on average</li>` : `<li>EBacc squeeze: arts dropped for English Baccalaureate</li><li>Many students with limited formal arts education</li><li>Strong self-taught creative skills (especially digital)</li><li>BTEC creative pathways for vocational learners</li>`}
+      ${selectedYear >= 2034 ? `<li>EBacc abolished — more students taking arts GCSEs</li><li>Revitalised arts curriculum entitlement</li><li>Higher proportion with formal creative qualifications</li><li>Stronger foundational art & design skills on average</li>` : `<li>EBacc squeeze: arts dropped for English Baccalaureate</li><li>Many students with limited formal arts education</li><li>Strong self-taught creative skills (especially digital)</li><li>BTEC creative pathways for vocational learners</li>`}
     </ul>
   </div>
   <div class="change-card">
-    <span class="change-year-label ${selectedYear >= 2030 ? 'cy-2030' : selectedYear >= 2028 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2030 ? 'Strong' : selectedYear >= 2028 ? 'Developing' : 'Standard'}</span>
+    <span class="change-year-label ${selectedYear >= 2034 ? 'cy-2030' : selectedYear >= 2031 ? 'cy-2028' : 'cy-current'}">${selectedYear >= 2034 ? 'Strong' : selectedYear >= 2031 ? 'Developing' : 'Standard'}</span>
     <div class="change-card-title">Oracy & Communication</div>
     <ul class="change-list">
-      ${selectedYear >= 2030 ? `<li>Oracy framework statutory — verbal skills formally assessed</li><li>Stronger presentation, debate and critical discussion skills</li><li>Formal oracy in all English Language qualifications</li>` : selectedYear >= 2028 ? `<li>Oracy framework introduced (statutory from 2028)</li><li>Improving but not yet fully embedded across schools</li>` : `<li>Literacy and writing prioritised over spoken communication</li><li>Some: presentations and oral assessments via Media Studies NEA</li><li>Variable quality of public speaking skills at entry</li>`}
+      ${selectedYear >= 2034 ? `<li>Oracy framework statutory — verbal skills formally assessed</li><li>Stronger presentation, debate and critical discussion skills</li><li>Formal oracy in all English Language qualifications</li>` : selectedYear >= 2031 ? `<li>Oracy framework introduced (statutory from 2028)</li><li>Improving but not yet fully embedded across schools</li>` : `<li>Literacy and writing prioritised over spoken communication</li><li>Some: presentations and oral assessments via Media Studies NEA</li><li>Variable quality of public speaking skills at entry</li>`}
     </ul>
   </div>
 </div>
@@ -1167,7 +1167,7 @@ function renderCoursesView() {
       </div>
       <div class="course-card-body">
         <div class="intake-alert">
-          ${selectedYear >= 2030 ? `<strong>⬆ Elevated baseline</strong> — post-reform cohort with stronger foundations` : selectedYear >= 2028 ? `<strong>⚡ Transition cohort</strong> — emerging reforms in effect` : `<strong>Standard intake</strong> — pre-reform curriculum`}
+          ${selectedYear >= 2035 ? `<strong>⬆ Elevated baseline</strong> — post-reform cohort with stronger foundations` : selectedYear >= 2031 ? `<strong>⚡ Transition cohort</strong> — emerging reforms in effect` : `<strong>Standard intake</strong> — pre-reform curriculum`}
         </div>
       </div>
     </div>
@@ -1251,7 +1251,7 @@ function showCourseDetail(id) {
 
 function renderCourseDetail(course) {
   const profile = getCohortProfile(selectedYear);
-  const hasReformNote = selectedYear >= 2028;
+  const hasReformNote = selectedYear >= 2031;
   const hasL3 = !!course.modules.L3;
   
   let levelKeys = hasL3 ? ['L3','L4','L5','L6'] : ['L4','L5','L6'];
@@ -1296,8 +1296,8 @@ function renderCourseDetail(course) {
         <ul class="knowledge-list kl-unknown">${course.schoolKnowledge.unknown.map(i=>`<li>${i}</li>`).join('')}</ul>
       </div>
     </div>
-    ${selectedYear >= 2028 ? `<div class="knowledge-card" style="background:var(--color-success-highlight);border-color:var(--color-success);">
-      <div class="knowledge-card-title kc-success">Emerging from ${selectedYear >= 2030 ? 'reformed' : 'transitional'} curriculum (new from this cohort onwards)</div>
+    ${selectedYear >= 2031 ? `<div class="knowledge-card" style="background:var(--color-success-highlight);border-color:var(--color-success);">
+      <div class="knowledge-card-title kc-success">Emerging from ${selectedYear >= 2034 ? 'reformed' : 'transitional'} curriculum (new from this cohort onwards)</div>
       <ul class="knowledge-list kl-new">
         ${selectedYear >= 2030 ? `
           <li>Compulsory media literacy embedded in citizenship (KS1-4)</li>
