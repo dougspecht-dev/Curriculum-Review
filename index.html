@@ -349,7 +349,7 @@ function getCohortProfile(year) {
 
 function getCohortDescription(year) {
   const profile = getCohortProfile(year);
-  const schoolYear = year - 18; // approx year they started primary
+  const schoolYear = year - 15; // approx year they started primary (age 4, uni at 19)
   const descriptions = {
     'pre-reform': `Students entering in ${year} completed all education under the pre-2028 National Curriculum. They were educated under the 2014 National Curriculum with the EBacc still in force during their secondary years. Creative arts subjects (including Media Studies) were squeezed by the EBacc performance measures, meaning fewer students will have formal media, design or creative qualifications unless they specifically opted for arts/media pathways. Their computing education covered algorithms, programming and basic digital literacy only — no AI literacy, no data science concepts.`,
     'transition-1': `Students entering in ${year} experienced the transition period. The new National Curriculum was implemented from September 2028, so this cohort's final secondary years (roughly Years 11–13) overlapped with the reform announcement and early preparation period. While they did not benefit from the reformed GCSE specifications (which start teaching in 2029), schools began adapting their curricula in anticipation. The EBacc was formally abolished, making arts subjects more accessible. Media literacy became compulsory in citizenship from primary — meaning this cohort will have had it embedded in their final secondary years. Expect improved critical media thinking compared to earlier cohorts, but limited change in formal qualifications.`,
@@ -1094,7 +1094,7 @@ ${isPostReform ? `<div class="reform-banner green"><div class="reform-banner-tex
 
 <div class="stats-row">
   <div class="stat-card"><div class="stat-value">${selectedYear}</div><div class="stat-label">Student Entry Year</div></div>
-  <div class="stat-card"><div class="stat-value">${selectedYear - 18}</div><div class="stat-label">Year they started primary (approx.)</div></div>
+  <div class="stat-card"><div class="stat-value">${selectedYear - 15}</div><div class="stat-label">Year they started primary (approx.)</div></div>
   <div class="stat-card"><div class="stat-value">${selectedYear - 3}</div><div class="stat-label">Year they sat GCSEs (approx.)</div></div>
   <div class="stat-card"><div class="stat-value">${selectedYear - 1}</div><div class="stat-label">Year they left 6th form (approx.)</div></div>
   <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">Courses covered</div></div>
